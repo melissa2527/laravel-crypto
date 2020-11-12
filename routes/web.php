@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::get('/', 'IndexController@index')->name('home');
+
+Route::get('/login', 'IndexController@index');
+Route::get('/register', 'IndexController@index');
+
+Route::get('/{path?}', 'IndexController@index')->name('index')
+->where('path', '.*');
